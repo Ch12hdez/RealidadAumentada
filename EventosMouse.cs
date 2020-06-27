@@ -24,7 +24,7 @@ public class EventosMouse : MonoBehaviour
     //[SerializeField]
     //Rigidbody proyectil;
 
-   //Codificación que marca, que cuando se entre en contacto con el mouse, o se de clic se torne en el color marcado
+   //Codificación que marca, que cuando se entre en contacto con el mouse, o se de clic se torne en el color marcado, sirve para que se tenga el orden y se note la interaccion del mouse con el objeto en este caso mediante el cambio de los colores
     //private void OnMouseEnter()
     //{
       //  materiaObjeto.material.color = Color.blue;
