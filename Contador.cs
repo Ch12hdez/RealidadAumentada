@@ -24,14 +24,14 @@ public class Contador : MonoBehaviour
     public int contador;
     #endregion
 
-    //Codigo que activa los menus y a la vez llama a las "gemas"
+    //Codigo que activa los menus y a la vez llama a las "gemas", sirve para identificar lo que hay en escena y tenerlo "listo" para su uso
     private void Start()
     {
         gemas = GetComponentInParent<MenuS>();
         menuHome.SetActive(false);
     }
 
-    //Codigo que al entrar en contacto mediante el clic va a ir sumando lo que ira cambiando de objeto, de uno a uno
+    //Codigo que al entrar en contacto mediante el clic va a ir sumando lo que ira cambiando de objeto, de uno a uno, esto sirve para cuando le demos clic en el boton de adelante, se pase del objeto que esta pantalla a los siguientes sucesivamente y de forma correcta
     public void ContadorSuma()
     {
         gemas.objetos[contador].SetActive(false);
@@ -46,7 +46,7 @@ public class Contador : MonoBehaviour
 
     }
 
-    //Codigo que al entrar en contacto mediante el clic va a ir restando lo que ira cambiando de objeto, de uno a uno pero en manera contraria
+    //Codigo que al entrar en contacto mediante el clic va a ir restando lo que ira cambiando de objeto, de uno a uno pero en manera contraria, esto sirve para cuando le demos clic en el boton de atras, se pase del objeto que esta pantalla pero alreves de manera sucesiva
     public void ContadorResta()
     {
         gemas.objetos[contador].SetActive(false);
@@ -61,7 +61,7 @@ public class Contador : MonoBehaviour
     }
 
    //Codigos que identifican a los objetos y al seleccionarlos se aplican en la pantalla y con ello se genera un ciclo que si se da clic al icono de "home" regresa a la pantalla para seleccionar otro objeto
-   //y aparecera de igual manera en pantalla
+   //y aparecera de igual manera en pantalla, este codigo ayuda a tener identificadas las diferentes pantallas o canvas que presenta el proyecto generando un mayor orden e interactividad 
     public void Seleccion()
     {
         GameObject gemaPos = Instantiate(elegido,objPosition.position,objPosition.rotation ) as GameObject;
