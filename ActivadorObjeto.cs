@@ -17,7 +17,7 @@ public class ActivadorObjeto : MonoBehaviour
     public GameObject activarObj;
     public Transform vinculaObj; 
     
-    //Lineas de codigo que indican que al estar despierto o activo se busca al objeto y si esta desactivado deja se buscarlo
+    //Lineas de codigo que indican que al estar despierto o activo se busca al objeto y si esta desactivado deja se buscarlo, estas sirven para que se logre identificar automaticamente los objetos que tenemos en la escena, volviendolo mas autonomo y rapido
     private void Awake()
     {
         activarObj.SetActive(false);
