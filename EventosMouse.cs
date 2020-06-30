@@ -14,30 +14,33 @@ public class EventosMouse : MonoBehaviour
 {
     [SerializeField]
     Animator animPlayer;
-    
+
+    [SerializeField]
+    GameObject globoDialogo;
+
     // Declaración de variables para identificar a los objetos 
     //[SerializeField]
     //Renderer materiaObjeto;
     //[SerializeField]
     //Renderer materiaObjeto2;
 
-    //[SerializeField]
-    //Rigidbody proyectil;
+    [SerializeField]
+    Rigidbody proyectil;
 
-   //Codificación que marca, que cuando se entre en contacto con el mouse, o se de clic se torne en el color marcado, sirve para que se tenga el orden y se note la interaccion del mouse con el objeto en este caso mediante el cambio de los colores
+    //Codificación que marca, que cuando se entre en contacto con el mouse, o se de clic se torne en el color marcado
     //private void OnMouseEnter()
     //{
-      //  materiaObjeto.material.color = Color.blue;
+    //  materiaObjeto.material.color = Color.blue;
     //}
 
     //private void OnMouseOver()
     //{
-      //  materiaObjeto.material.color = Color.green;
+    //  materiaObjeto.material.color = Color.green;
     //}
 
     //private void OnMouseExit()
     //{
-      //  materiaObjeto.material.color = Color.red;
+    //  materiaObjeto.material.color = Color.red;
     //}
 
     //private void OnMouseDown()
@@ -67,21 +70,31 @@ public class EventosMouse : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             //Creacion de un objeto desde pantalla
-            //Rigidbody proyectilPos = Instantiate(proyectil) as Rigidbody;
-            //proyectil.position = ray.origin;
-            //proyectilPos.AddForce(ray.direction * 1000);
+            Rigidbody proyectilPos = Instantiate(proyectil) as Rigidbody;
+            proyectil.position = ray.origin;
+            proyectilPos.AddForce(ray.direction * 1000);
 
+            //Funciona OnCollisionEnter
             if (Physics.Raycast(ray,out hitinfo))
             {
                 if (hitinfo.collider.tag=="Player")
                 {
                     animPlayer.SetTrigger("Hola");
+                    globoDialogo.SetActive(true);
                 }
 
-                if (hitinfo.collider.tag == "Pino")
+                if (hitinfo.collider.tag == "Coin")
                 {
-                    
+                    Transform personaje;
+
+                    personaje = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+
+                    personaje.Rotate(Vector3.up * 10);
+
+                    //animPlayer.SetTrigger("Recoger");
+                    //Destroy(hitinfo.collider.gameObject);
                 }
+
             }
         }
     }
